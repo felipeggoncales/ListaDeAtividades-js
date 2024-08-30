@@ -7,7 +7,76 @@
 </head>
 <body>
     <script>
-        
+        let contagemSim = 0;
+
+        let pergunta1 = prompt("Telefonou para a vítima?")
+        while (true) {
+            if (pergunta1.toLowerCase() == 'sim') {
+                contagemSim++;
+                break
+            } else if (pergunta1.toLocaleLowerCase() == 'não' || pergunta1.toLocaleLowerCase() == 'nao') {
+                break
+            } else {
+                pergunta1 = prompt("Telefonou para a vítima?")
+            }
+        }
+
+        let pergunta2 = prompt("Esteve no local do crime?")
+        while (true) {
+            if (pergunta2.toLowerCase() == 'sim') {
+                contagemSim++;
+                break
+            } else if (pergunta2.toLocaleLowerCase() == 'não' || pergunta2.toLocaleLowerCase() == 'nao') {
+                break
+            } else {
+                pergunta2 = prompt("Esteve no local do crime?")
+            }
+        }
+        let pergunta3 = prompt("Mora perto da vítima?")
+        while (true) {
+            if (pergunta3.toLowerCase() == 'sim') {
+                contagemSim++;
+                break
+            } else if (pergunta3.toLocaleLowerCase() == 'não' || pergunta3.toLocaleLowerCase() == 'nao') {
+                break
+            } else {
+                pergunta3 = prompt("Mora perto da vítima?")
+            }
+        }
+
+        let pergunta4 = prompt("Devia para a vítima?")
+        while (true) {
+            if (pergunta4.toLowerCase() == 'sim') {
+                contagemSim++;
+                break
+            } else if (pergunta4.toLocaleLowerCase() == 'não' || pergunta4.toLocaleLowerCase() == 'nao') {
+                break
+            } else {
+                pergunta4 = prompt("Devia para a vítima?")
+            }
+        }
+
+        let pergunta5 = prompt("Já trabalhou com a vítima?")
+        while (true) {
+            if (pergunta5.toLowerCase() == 'sim') {
+                contagemSim++;
+                break
+            } else if (pergunta5.toLocaleLowerCase() == 'não' || pergunta5.toLocaleLowerCase() == 'nao') {
+                break
+            } else {
+                pergunta5 = prompt("Já trabalhou com a vítima?")
+            }
+        }
+
+        if (contagemSim == 2) {
+            alert('Suspeito')
+        } else if (contagemSim >= 3 && contagemSim <= 4) {
+            alert('Cúmplice')
+        } else if (contagemSim == 5) {
+            alert('Culpado')
+        } else {
+            alert('Inocente')
+        }
     </script>
 </body>
 </html>
