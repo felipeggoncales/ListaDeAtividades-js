@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let idades = [];
+        let alturas = [];
+
+        for (i = 0; i < 5; i++) {
+            let idade = parseInt(prompt(`Informe a idade da pessoa ${i+1}: `))
+            let altura = parseFloat(prompt(`Informe a altura da pessoa ${i+1}: `))
+
+            idades.push(idade)
+            alturas.push(altura)
+        }
+
+        alert(idades.reverse())
+        alert(alturas.reverse())
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let soma = 0;
+        let maior7 = 0;
+
+        for (i = 0; i < 10; i++) {
+            for (i2 = 0; i2 < 4; i2++) {
+                let num = parseFloat(prompt(`Informe a nota ${i2+1} do estudante ${i+1}: `))
+                soma += num;
+            }
+            media = soma / 4;
+            if (media >= 7) {
+                maior7 += 1;
+            }
+            soma = 0;
+            media = 0;
+        }
+
+        alert(`Alunos com nota igual ou maior que 7: ${maior7} estudantes`)
+    </script>
+</body>
+</html>

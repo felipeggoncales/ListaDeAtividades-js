@@ -1,0 +1,3 @@
+Interpolaçaõ de Strings (Inserir variaveis no texto com ${})
+
+lita.includes(item)

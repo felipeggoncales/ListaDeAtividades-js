@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       let lista = ['a','b','c','d','e','f','g','h','i','j'];
+       let vogais = ['a','e','i','o','u'];
+       let contagem = 0;
+       let consoantes = [];
+
+       for (item of lista) {
+            if (vogais.includes(item) == false) {
+                contagem += 1;
+                consoantes.push(item)
+            }
+       }
+
+       alert(`Quantidade de consoantes: ${contagem} | Consoantes: ${consoantes}`)
+    </script>
+</body>
+</html>
