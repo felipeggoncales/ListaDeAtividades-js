@@ -7,7 +7,44 @@
 </head>
 <body>
     <script>
+        let notas = [];
+        let notasAcimaMedia = 0;
+        let notasAbaixoSete = 0;
+
+        while (true) {
+            let nota = parseFloat(prompt('Informe a nota: '))
+            if (nota == -1) {
+                break
+            } else {
+                notas.push(nota)
+            }
+        }
+
+        let qntNotas = notas.length;
+        let soma = notas.reduce((a,b) => a + b,0);
+        let media = (soma / qntNotas).toFixed(2);
+        for (item of notas) {
+            if (item > media) {
+                notasAcimaMedia++
+            }
+
+            if (item < 7) {
+                notasAbaixoSete++
+            }
+        }
+
+        let notasInvertidas = "\n";
+        for (n of [...notas].reverse()) {
+            notasInvertidas += n+'\n';
+        }
+
         
+        alert(`Quantidade de valores lidos: ${qntNotas}`)
+        alert(`Notas informadas: ${notas}`)
+        alert(`Notas informadas na ordem inversa em que foram informadas: ${notasInvertidas}`)
+        alert(`Quantidade de notas acima da média: ${notasAcimaMedia}`)
+        alert(`Quantidade de notas abaixo de 7: ${notasAbaixoSete}`)
+        alert(`Obrigado por utilizar meu programa! Tchau~`)
     </script>
 </body>
 </html>

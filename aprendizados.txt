@@ -1,3 +1,7 @@
 Interpolaçaõ de Strings (Inserir variaveis no texto com ${})
 
-lita.includes(item)
+lista.includes(item)
+
+função
+
+[...lista] = Cria uma cópia da lista original

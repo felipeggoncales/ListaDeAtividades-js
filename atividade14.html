@@ -7,7 +7,40 @@
 </head>
 <body>
     <script>
-        
+        let contagemSim = 0;
+
+        function fazerPergunta(texto) {
+            let resposta = prompt(texto)
+
+            while (true) {
+                if (resposta.toLowerCase() == 'sim') {
+                    contagemSim++;
+                    break
+                } else if (resposta.toLocaleLowerCase() == 'não' || resposta.toLocaleLowerCase() == 'nao') {
+                    break
+                } else {
+                    resposta = prompt(texto)
+                }
+            }
+
+        }
+
+        fazerPergunta("Telefonou para a vítima?")
+        fazerPergunta("Esteve no local do crime?")
+        fazerPergunta("Mora perto da vítima?")
+        fazerPergunta("Devia para a vítima?")
+        fazerPergunta("Já trabalhou com a vítima?") 
+
+
+        if (contagemSim == 2) {
+            alert('Suspeito')
+        } else if (contagemSim >= 3 && contagemSim <= 4) {
+            alert('Cúmplice')
+        } else if (contagemSim == 5) {
+            alert('Culpado')
+        } else {
+            alert('Inocente')
+        }
     </script>
 </body>
 </html>
