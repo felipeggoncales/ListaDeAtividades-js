@@ -7,7 +7,28 @@
 </head>
 <body>
     <script>
-        
+        let resultados = [];
+
+        function dado() {
+            let resultado = Math.floor(Math.random() * 6) + 1;
+            resultados.push(resultado)
+        }
+        for (i = 0; i < 100; i++) {
+            dado()
+        }
+
+        let texto = 'Número    Frequência'
+        for (i2 = 0; i2 < 6; i2++) {
+            let contagem = 0;
+            for (item of resultados) {
+                if (item == i2+1) {
+                    contagem++
+                }
+            }
+            texto += `\n      ${i2+1}                ${contagem}`
+        }
+
+        alert(texto)
     </script>
 </body>
 </html>

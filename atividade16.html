@@ -7,7 +7,54 @@
 </head>
 <body>
     <script>
-        
+        let salarios = [];
+
+        function contar(valora, valorb) {
+            let lista = [];
+            for (let posicao in salarios) {
+                if (salarios[posicao] >= valora && salarios[posicao] < valorb) {
+                    lista.push(salarios[posicao])
+                }
+            } 
+            if (valora < 1000) {
+                alert(`Quantidade de funcionários que recebem de ${valora} a ${valorb}: ${lista.length}`)
+            } else {
+                alert(`Quantidade de funcionários que recebem mais de ${valora}: ${lista.length}`)
+            } 
+        }
+
+        while (true) {
+            let salario = parseInt(prompt('Informa o valor de vendas do vendedor (Digite -1 para parar): '))
+            if (salario == -1) {
+                break
+            } else {
+                salario = (salario*0.09)+200;
+                salarios.push(salario)
+            }
+        }
+
+        for (i = 200; i < 1001; i += 100) {
+            if (i < 1000) {
+                contar(i,i+99)
+            } else {
+                contar(i,Infinity)
+            }
+        }
+
+        let buscar = (parseInt(prompt('Informe a quantidade de vendas a ser buscado na lista: '))*0.09)+200;
+        let encontrado = false;
+
+        for (let posicao in salarios) {
+            if (buscar == salarios[posicao]) {
+                alert(`O salário ${buscar.toFixed(2)} está na posição ${posicao} da lista`);
+                encontrado = true;
+                break;
+            }
+        }
+        if (!encontrado) {
+                alert('Valor não encontrado na lista');
+        }      
+
     </script>
 </body>
 </html>

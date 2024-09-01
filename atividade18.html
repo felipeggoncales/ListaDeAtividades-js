@@ -7,7 +7,47 @@
 </head>
 <body>
     <script>
-        
+        let jogadores = [];
+        let qntVotos = [];
+
+        while (true) {
+            let resposta = parseInt(prompt('Número do jogador (0 para sair): '));
+            if (resposta == 0) {
+                break
+            } else if (resposta < 1 || resposta > 23) {
+                alert('Digite um número entre 1 e 23 ou 0 para sair!');
+            } else {
+                let indice = jogadores.indexOf(resposta);
+                if (indice === -1) {
+                    jogadores.push(resposta);
+                    qntVotos.push(1);
+                } else {
+                    qntVotos[indice]++;
+                }
+            }
+        }
+
+        let somaVotos = qntVotos.reduce((a,b) => a+b,0)
+
+        alert(`Votos computados: ${somaVotos}`)
+
+        let texto = 'Jogador     Votos     Porcentagem';
+        let votosMelhorJogador = -Infinity;
+        let melhorJogador = '';
+        let porcentagemMelhorJogador = 0;
+
+        for (jogador of jogadores) {
+            let votosJogador = qntVotos[jogadores.indexOf(jogador)];
+            texto += `\n${jogador}     ${votosJogador}     ${((votosJogador/somaVotos)*100).toFixed(2)}%`;
+            if (votosJogador > votosMelhorJogador) {
+                melhorJogador = jogador;
+                votosMelhorJogador = votosJogador;
+                porcentagemMelhorJogador = ((votosJogador/somaVotos)*100).toFixed(2);
+            }
+        }
+
+        alert(texto)
+        alert(`O melhor jogador segundo voto popular foi o número ${melhorJogador}, com ${votosMelhorJogador} votos, correspondendo a ${porcentagemMelhorJogador}% do total!`)
     </script>
 </body>
 </html>

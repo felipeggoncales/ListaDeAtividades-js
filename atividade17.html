@@ -7,7 +7,26 @@
 </head>
 <body>
     <script>
-        
+        let nome = prompt('Informe o nome do atleta: ');
+        if (nome.trim() != '') {
+                let saltos = [];
+
+            for (i = 0; i < 5; i++) {
+                while (true) {
+                    let salto = parseFloat(prompt(`Informe a distância do ${i+1}° salto: `)).toFixed(2);
+                    if (!isNaN(salto)) {
+                        saltos.push(parseFloat(salto));;
+                        break;
+                    }
+                }
+            }
+
+            let media = (saltos.reduce((a,b) => a + b, 0) / saltos.length).toFixed(2);
+
+            alert(`Atleta: ${nome}\nSaltos: ${saltos[0]} - ${saltos[1]} - ${saltos[2]} - ${saltos[3]} - ${saltos[4]}\nMédia dos saltos: ${media}`)
+        } else {
+            alert('É necessário informar o nome do atletla para continuar');
+        }
     </script>
 </body>
 </html>
