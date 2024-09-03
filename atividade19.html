@@ -7,7 +7,42 @@
 </head>
 <body>
     <script>
-        
+        let sistemas = ['Windows Server','Unix','Linux','Netware','Mac OS','Outro'];
+        let votos = [0,0,0,0,0,0];
+
+        while (true) {
+            let resposta = parseInt(prompt(`Qual o melhor Sistema Operacional para uso em servidores?\n1 - Windows Server\n2 - Unix\n3 - Linux\n4 - Netware\n5 - Mac OS\n6 - Outro\n`))
+            if (resposta === 0) {
+                break
+            } else if ([1,2,3,4,5,6].includes(resposta)) {
+                votos[resposta-1]++;
+            } else {
+                alert(`Valor inválido`);
+            }
+        }
+
+        let somaVotos = votos.reduce((a,b) => a+b,0);
+        function print(item) {
+            let ind = sistemas.indexOf(item);
+            let porcent = ((votos[ind]/somaVotos)*100).toFixed(2);
+            let text = `${item}             ${votos[ind]}               ${porcent}%`;
+            return text;
+        }
+
+        let sistemaMaisVotadoVotos = -Infinity;
+        let porcentagemSistemaMaisVotado = '';
+        let sistemaMaisVotado = '';
+        let indice = 0;
+        for (sistema of sistemas) {
+            indice = sistemas.indexOf(sistema);
+            if (sistemaMaisVotado < votos[indice]) {
+                sistemaMaisVotadoVotos = votos[indice];
+                sistemaMaisVotado = sistema;
+                porcentagemSistemaMaisVotado = ((votos[indice]/somaVotos)*100).toFixed(2);
+            }
+        }
+
+        alert(`Sistema Operacional     Votos     %\n-----------------------     -----      ---\n${print(sistemas[0])}\n${print(sistemas[1])}\n${print(sistemas[2])}\n${print(sistemas[3])}\n${print(sistemas[4])}\n${print(sistemas[5])}\n\nO Sistema Operacional mais votado foi o ${sistemaMaisVotado}, com ${sistemaMaisVotadoVotos} votos, correspondendo a ${porcentagemSistemaMaisVotado}% dos votos.`)
     </script>
 </body>
 </html>
