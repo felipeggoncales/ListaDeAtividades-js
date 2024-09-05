@@ -1,7 +1,27 @@
-Interpolaçaõ de Strings (Inserir variaveis no texto com ${})
+Interpolaçaõ de Strings (Inserir variaveis no texto com ${} e ``)
+Ex: 
+let pessoas = 15;
+alert(`Quantidade de pessoas: ${pessoas}`);
+
 
 lista.includes(item)
 
-função
+
+lista.indexOf(item)
+
+
+function funcao {
+    return alguma_coisa
+}
+
 
 [...lista] = Cria uma cópia da lista original
+
+
+for e while
+
+
+//Como somar os itens em uma lista
+lista.reduce((a,b)=>a+b,0)
+- O lista.reduce() terá a função de reduzir os elementos da lista a um único valor, e seguirá
+as regras que você inserir dentro da função
