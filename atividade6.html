@@ -7,23 +7,26 @@
 </head>
 <body>
     <script>
-        let soma = 0;
         let maior7 = 0;
+        let medias = [];
 
         for (i = 0; i < 10; i++) {
+            let soma = 0;
             for (i2 = 0; i2 < 4; i2++) {
                 let num = parseFloat(prompt(`Informe a nota ${i2+1} do estudante ${i+1}: `))
                 soma += num;
             }
-            media = soma / 4;
-            if (media >= 7) {
-                maior7 += 1;
-            }
-            soma = 0;
-            media = 0;
+            media = (soma / 4).toFixed(2);
+            medias.push(media);
         }
 
-        alert(`Alunos com nota igual ou maior que 7: ${maior7} estudantes`)
+        for (item of medias) {
+            if (item >= 7) {
+                maior7++;
+            }
+        }
+
+        alert(`Médias: ${medias}\nAlunos com nota igual ou maior que 7: ${maior7} estudantes`)
     </script>
 </body>
 </html>
