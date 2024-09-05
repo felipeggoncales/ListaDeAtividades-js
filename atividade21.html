@@ -7,16 +7,33 @@
 </head>
 <body>
     <script>
-        let modelosCarros = ['Civic', 'Corolla', 'Focus', 'Cruze', 'Golf'];
-        let consumoCarros = [14, 12, 10, 11, 13];
+        let modelosCarros = [];
+        let consumoCarros = [];
         const distanciaPercorrida = 1000;
         const precoGasolina = 2.25;
 
-        let consumoCarroMaisEconomico = Infinity;
+        while (true) {
+            let userCarro = prompt('Informe o modelo do carro (0 para parar): ')
+            if (userCarro.trim() === '') {
+                alert('Informe o nome do carro')
+            } else if (userCarro === '0'){
+                if (modelosCarros.length == 0) {
+                    alert('É necessário informar ao menos um modelo para continuar')
+                } else {
+                    break
+                }
+            } else {
+                let userConsumo = parseFloat(prompt('Informe o consumo do carro: '))
+                modelosCarros.push(userCarro);
+                consumoCarros.push(userConsumo);    
+            }
+        }
+
+        let consumoCarroMaisEconomico = -Infinity;
         let carroMaisEconomico = '';
         for (carro of modelosCarros) {
             let indice = modelosCarros.indexOf(carro);
-            if (consumoCarroMaisEconomico > consumoCarros[indice]) {
+            if (consumoCarroMaisEconomico < consumoCarros[indice]) {
                 carroMaisEconomico = carro;
                 consumoCarroMaisEconomico = consumoCarros[indice];
             }
@@ -25,9 +42,10 @@
         let mensagem = `Relatório Final\n`;
         for (item of modelosCarros) {
             let indiceCarro = modelosCarros.indexOf(item);
-            let qntGasolina = (distanciaPercorrida/consumoCarros[indiceCarro]).toFixed(2);
+            let consumoCarro = consumoCarros[indiceCarro];
+            let qntGasolina = (distanciaPercorrida/consumoCarro).toFixed(2);
             let custo = (qntGasolina*precoGasolina).toFixed(2)
-            mensagem += `${item}    -   ${qntGasolina} litros   -   R$${custo}\n`
+            mensagem += `${item}    -   ${consumoCarro.toFixed(2)}  -  ${qntGasolina} litros   -   R$${custo}\n`
         }
 
         alert(mensagem+`O menor consumo é do ${carroMaisEconomico}.`)
