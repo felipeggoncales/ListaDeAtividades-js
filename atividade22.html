@@ -7,27 +7,7 @@
 </head>
 <body>
     <script>
-        let usuarios = ['alexandre', 'anderson', 'antonio', 'carlos', 'cesar', 'rosemary'];
-        let espacoUsuarios = [456123789, 1245698456, 123456456, 91257581, 987458,789456125];
-
-        let espacoTotal = espacoUsuarios.reduce((a,b)=>a+b,0);
-        let espacoMedio = (espacoTotal/usuarios.length).toFixed(2);
-
-        function converterBytes(bytes) {
-            return (bytes / 1024**2).toFixed(2);
-        }
-
-        function calcularPorcentagem(bytes){
-            return ((bytes / espacoTotal)*100).toFixed(2);
-        }
-
-        let mensagem = ``;
-        for (user of usuarios) {
-            let indice = usuarios.indexOf(user);
-            mensagem += `${indice+1}     ${user}         ${converterBytes(espacoUsuarios[indice])} MB           ${calcularPorcentagem(espacoUsuarios[indice])}%\n`;
-        }
-
-        alert(`ACME Inc.             Uso do espaço em disco pelos usuários\n------------------------------------------------------------\nNr.     Usuário     Espaço utilizado     % do uso\n\n${mensagem}\nEspaço total ocupado: ${converterBytes(espacoTotal)} MB\nEspaço médio ocupado: ${converterBytes(espacoMedio)} MB`)
+        
     </script>
 </body>
 </html>
