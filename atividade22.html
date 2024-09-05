@@ -7,7 +7,34 @@
 </head>
 <body>
     <script>
-        
+        let listaContagem = [0,0,0,0];
+        let perguntas = ['1 - Necessita de esfera','2 - Necessita de limpeza','3 - Necessita de troca do cabo ou conector','4 - Quebrado ou inutilizado']
+        while (true) {
+            let pergunta = parseInt(prompt(`Qual o defeito do mouse? (0 para parar)\n\n${perguntas[0]}\n${perguntas[1]}\n${perguntas[2]}\n${perguntas[3]}\n`))
+            if (pergunta == 0) {
+                break
+            } else if (pergunta == 1) {
+                listaContagem[0]++;
+            } else if (pergunta == 2) {
+                listaContagem[1]++;
+            } else if (pergunta == 3) {
+                listaContagem[2]++;
+            } else if (pergunta == 4) {
+                listaContagem[3]++;
+            } else {
+                alert('Digite um número de identificação válido para fazer a contagem!')
+            }
+        }
+
+        let qntMouses = listaContagem.reduce((a,b)=>a+b,0);
+
+        let mensagem = ``;
+        for (i=0; i<listaContagem.length; i++) {
+            let percentual = ((listaContagem[i]/qntMouses)*100).toFixed(2)
+            mensagem += `${perguntas[i]}        ${listaContagem[i]}              ${percentual}%\n`
+        }
+
+        alert(`Quantidade de mouses: ${qntMouses}\n\nSituação                     Quantidade    Percentual\n${mensagem}`)
     </script>
 </body>
 </html>
