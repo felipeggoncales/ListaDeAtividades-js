@@ -8,6 +8,9 @@
 <body>
     <script>
         let contagemSim = 0;
+        let perguntas = ["Telefonou para a vítima?", "Esteve no local do crime?",
+                        "Mora perto da vítima?","Devia para a vítima?",
+                        "Já trabalhou com a vítima?" ];
 
         function fazerPergunta(texto) {
             let resposta = prompt(texto)
@@ -25,11 +28,9 @@
 
         }
 
-        fazerPergunta("Telefonou para a vítima?")
-        fazerPergunta("Esteve no local do crime?")
-        fazerPergunta("Mora perto da vítima?")
-        fazerPergunta("Devia para a vítima?")
-        fazerPergunta("Já trabalhou com a vítima?") 
+        for (pergunta of perguntas) {
+            fazerPergunta(pergunta)
+        }
 
 
         if (contagemSim == 2) {

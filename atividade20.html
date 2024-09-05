@@ -7,7 +7,40 @@
 </head>
 <body>
     <script>
-        
+        let salarios = [];
+        let abonos = [];
+
+        while (true) {
+            let pergunta = parseInt(prompt('Informe o salário (0 para parar): '));
+            if (pergunta == 0) {
+                break
+            } else if (isNaN(pergunta)) {
+                alert('Informe um valor para continuar!');
+            } else {
+                salarios.push(pergunta);
+            }
+        }
+
+        let maiorAbono = -Infinity;
+        let qntAbonosMinimos = 0;
+        let sequenciaSalarios = ``;
+
+        for (indice in salarios) {
+            let abono = salarios[indice] * 0.2;
+            if (abono <= 100) {
+                abono = 100;
+                qntAbonosMinimos++;
+            }
+            abonos.push(abono);
+
+            if (abono > maiorAbono) {
+                maiorAbono = abono;
+            }
+
+            sequenciaSalarios += `R$${salarios[indice].toFixed(2)}  -  R$${abonos[indice].toFixed(2)}\n`;
+        }
+
+        alert(`Salário     -     Abono\n${sequenciaSalarios}\nForam processados ${salarios.length} colaboradores\nTotal gasto com abonos: R$${abonos.reduce((a,b)=>a+b,0).toFixed(2)}\nValor mínimo pago a ${qntAbonosMinimos} colaborador(es)\nMaior valor de abono: R$${maiorAbono.toFixed(2)}`)
     </script>
 </body>
 </html>
